@@ -33,9 +33,31 @@ class MyObject {
     }
     return undefined;
   }
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
+  }
+
+  values(){
+      const valuesArray = []
+      for (let i = 0; i < this.data.length; i++){
+        if (this.data[i]) {
+            valuesArray.push(this.data[i][0][1]);
+          }
+      }
+      return valuesArray
+  }  
 }
 
-const myObject = new MyObject(2);
+const myObject = new MyObject(50);
 myObject.set("grapes", 10000);
 myObject.set("apples", 54);
-console.log(myObject.get("apples"));
+myObject.set("oranges", 2);
+console.log(myObject.keys());
+console.log(myObject.values());
