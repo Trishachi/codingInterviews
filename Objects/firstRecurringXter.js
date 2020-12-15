@@ -23,15 +23,7 @@ function firstRecurringXter(arr) {
   }
   return undefined;
 }
-
-// console.log(firstRecurringXter([2, 5, 5, 2, 3, 5, 1, 2, 4]));
-
-//Brute force method in ES6
-const firstRecurringXter1 = (arr) => {
-  arr.map((item) => console.log(item));
-};
-
-console.log(firstRecurringXter1([2, 3, 4, 5]));
+console.log(firstRecurringXter([2, 5, 5, 2, 3, 5, 1, 2, 4]));
 
 //More Efficient Method
 function firstRecurringXter2(arr) {
@@ -42,10 +34,8 @@ function firstRecurringXter2(arr) {
     } else {
       map[arr[i]] = i;
     }
-    // console.log(map);
+    console.log(map);
   }
-
   return undefined;
 }
-
-// console.log(firstRecurringXter2([2, 5, 5, 2, 3, 5, 1, 2, 4]));
+console.log(firstRecurringXter2([2, 5, 5, 2, 3, 5, 1, 2, 4]));

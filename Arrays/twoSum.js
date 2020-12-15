@@ -21,4 +21,20 @@
 ///////////////////////////////////////////////////////////////////////////
 //SOLUTION
 
-const twoSum = (nums, target) => {};
+const twoSum = (nums, target) => {
+  let map = {};
+
+  for (num in nums) {
+    map[nums[num]] = num;
+  }
+
+  for (num in nums) {
+    const targetNum = target - nums[num];
+    if (map.hasOwnProperty(targetNum) && map[targetNum] !== num) {
+      return [num, map[targetNum]];
+    }
+  }
+  return "Target Not Found";
+};
+
+console.log(twoSum([3, 3], 6)); //[1,2]
