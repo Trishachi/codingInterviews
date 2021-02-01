@@ -37,9 +37,38 @@ class DoublyList {
     this.length++;
     return this;
   }
-  insert(index) {}
+  insert(index, value) {
+    if (index === 0) {
+      this.prepend(value);
+      return this.printList();
+    }
+    if (index >= this.length) {
+      return this.append(value);
+    }
+    const newNode = {
+      value: value,
+      next: null,
+      prev: null,
+    };
+    const pre = this.findIndex(index - 1);
+    const post = pre.next;
+    pre.next = newNode;
+    newNode.prev = pre;
+    newNode.next = post;
+    post.prev = newNode;
+    this.length++;
+    return this.printList();
+  }
   remove(index) {}
-  findIndex(index) {}
+  findIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
   printList() {
     const array = [];
     let currentNode = this.head;
@@ -56,8 +85,8 @@ const myLinkedList = new DoublyList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
+// myLinkedList.printList();
+myLinkedList.insert(1, 99);
 console.log(myLinkedList);
 myLinkedList.printList();
-// myLinkedList.insert(20, 99);
-// myLinkedList.printList();
 // myLinkedList.remove(2);

@@ -101,6 +101,6 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.printList();
-myLinkedList.insert(20, 99);
+myLinkedList.insert(1, 99);
 myLinkedList.printList();
 myLinkedList.remove(2);
