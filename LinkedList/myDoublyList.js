@@ -59,7 +59,26 @@ class DoublyList {
     this.length++;
     return this.printList();
   }
-  remove(index) {}
+  remove(index) {
+    //if index is the head
+    if (index === 0) {
+      this.head = this.head.next;
+      this.head.prev = null;
+    } else if (index >= this.length) {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else {
+      //if index is the tail
+      // //if index anywhere else
+      const pre = this.findIndex(index - 1);
+      let target = pre.next;
+      let post = target.next;
+      pre.next = target.next;
+      post.prev = target.prev;
+    }
+    this.length--;
+    return this.printList();
+  }
   findIndex(index) {
     let counter = 0;
     let currentNode = this.head;
@@ -85,8 +104,7 @@ const myLinkedList = new DoublyList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-// myLinkedList.printList();
-myLinkedList.insert(1, 99);
-console.log(myLinkedList);
 myLinkedList.printList();
-// myLinkedList.remove(2);
+myLinkedList.insert(1, 99);
+myLinkedList.remove(20);
+console.log(myLinkedList);
