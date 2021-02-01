@@ -2,25 +2,6 @@
 //Linked List - prepend : 1-->10-->5-->16
 //Linked List - insert : 1-->10-->99-->5-->16
 
-// let myLinkedList = {
-//   head: {
-//     value: 10,
-//     next: {
-//       value: 5,
-//       next: {
-//         value: 16,
-//         next: null,
-//       },
-//     },
-//   },
-// };
-
-// class Node {
-//   constructor(value) {
-//     (this.value = value), (this.next = null);
-//   }
-// }
-
 class LinkedList {
   constructor(value) {
     //initial value of list
