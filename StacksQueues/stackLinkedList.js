@@ -27,14 +27,29 @@ class Stack {
     this.length++;
     return this;
   }
-  pop() {}
+  pop() {
+    if (!this.top) {
+      return null;
+    }
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+
+    this.top = this.top.next;
+    this.length--;
+    return this;
+  }
   //isEmpty
 }
 
 const myStack = new Stack();
 console.log(myStack.push("google"));
 console.log(myStack.push("udemy"));
-// console.log(myStack.peek());
+console.log(myStack.push("discord"));
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
 
 //Discord
 //Udemy
