@@ -1,15 +1,38 @@
-class stackQueue {
-  constructor() {
-    this.first = [];
-    this.last = [];
-  }
+/**
+ * Initialize your data structure here.
+ */
+var MyQueue = function () {};
 
-  enqueue(value) {}
+/**
+ * Push element x to the back of queue.
+ * @param {number} x
+ * @return {void}
+ */
+MyQueue.prototype.push = function (x) {};
 
-  dequeue() {}
+/**
+ * Removes the element from in front of queue and returns that element.
+ * @return {number}
+ */
+MyQueue.prototype.pop = function () {};
 
-  peek() {}
-}
+/**
+ * Get the front element.
+ * @return {number}
+ */
+MyQueue.prototype.peek = function () {};
 
-const myQueue = new stackQueue();
-comsole.log(myQueue.peek());
+/**
+ * Returns whether the queue is empty.
+ * @return {boolean}
+ */
+MyQueue.prototype.empty = function () {};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * var obj = new MyQueue()
+ * obj.push(x)
+ * var param_2 = obj.pop()
+ * var param_3 = obj.peek()
+ * var param_4 = obj.empty()
+ */
