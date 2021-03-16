@@ -14,3 +14,14 @@ Rules for writing recursive functions
 3. Get closer and closer and return when needed.
 You usually have two returns, one for the base case and another for 
 the recursive case.
+
+Recursion vs Iterartive
+A problem than can be solved with recursion can often be slolved Iterartively.
+Recursion === Keeps code DRY but can take up stack space and possibly cause stack overflow
+Use recursion for data structures when we are unsure of how deep they are and how many loops to go through
+Rescursion vs looing can make tasks super easy. 
+
+When to use recursion
+ - Tree/Graph transversal
+ - Sorting
+ - Whenever using a tree or converting something to a tree
