@@ -1,0 +1,18 @@
+Searching Types
+
+- Linear Search = Sequentially checks all items till target item is found or till all items have been searched.
+Exampes in JS == indexOf(), findIndex(), find(), includes()
+
+- Binary Search = Divides the list and then decides if target item is in the left or right and then searches the side with the target item. It is mostly used for sorted lists.
+
+- Depth First Search (DFS) = Tree traversal == starts from the first node and the follows one branch of tree down as meny levels as possible until target is found or node finished and it then goes back to the nearest anscestor with an unexplored child.
+-Pros - Uses less memory, Answers the question does the path exist; Cons - Can get very slow
+
+- Breadth First Search (BFS) = Tree traversal == start from the first node, move left to right on 2nd level and the left to right on subsequent levels.
+Pros - Shortest Path, Closer Nodes; Cons - Requires more memory
+       9
+   4      20
+1    6  15  170
+
+BFS = [9, 4, 20, 1, 6, 15, 170]
+DFS = [9, 4, 1, 4, 6, 20, 15, 170]
