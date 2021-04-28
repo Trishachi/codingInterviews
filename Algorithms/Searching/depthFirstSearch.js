@@ -1,4 +1,11 @@
-//Using a queue algorith
+//      9
+//   4       20
+// 1   6  15   170
+
+//Modes of transversal
+//InOrder - [1, 4, 6, 9, 15, 20, 170]
+//PreOrder - [9, 4, 1, 6, 20, 15, 170]
+//PostOrder - [1, 6, 4, 15, 170, 20, 9]
 
 class Node {
   constructor(value) {
@@ -86,10 +93,11 @@ class BinarySearchTree {
 
           //Option 2: Right child which doesnt have a left child
         } else if (currentNode.right.left === null) {
-          currentNode.right.left = currentNode.left;
           if (parentNode === null) {
-            this.root = currentNode.right;
+            this.root = currentNode.left;
           } else {
+            currentNode.right.left = currentNode.left;
+
             //if parent > current, make right child of the left the parent
             if (currentNode.value < parentNode.value) {
               parentNode.left = currentNode.right;
@@ -129,50 +137,87 @@ class BinarySearchTree {
       }
     }
   }
-
-  breathFirstSearch() {
+  BreadthFirstSearch() {
     let currentNode = this.root;
     let list = [];
-    let queue = []; //keeps track of the current level so we can access the children later
+    let queue = [];
     queue.push(currentNode);
 
     while (queue.length > 0) {
-      currentNode = queue.shift(); //takes the first item in the queue
-      console.log(currentNode.value);
+      currentNode = queue.shift();
       list.push(currentNode.value);
       if (currentNode.left) {
-        //does the root node have a child on its left
         queue.push(currentNode.left);
       }
       if (currentNode.right) {
-        //does the root node have a child on its right
         queue.push(currentNode.right);
       }
     }
     return list;
   }
-
-  breathFirstSearchR(queue, list) {
+  BreadthFirstSearchR(queue, list) {
     if (!queue.length) {
       return list;
     }
-    let currentNode = queue.shift();
+    const currentNode = queue.shift();
     list.push(currentNode.value);
+
     if (currentNode.left) {
-      //does the root node have a child on its left
       queue.push(currentNode.left);
     }
     if (currentNode.right) {
-      //does the root node have a child on its right
       queue.push(currentNode.right);
     }
-    return this.breathFirstSearchR(queue, list);
+
+    return this.BreadthFirstSearchR(queue, list);
+  }
+
+  DFSInorder() {
+    return transverseInOrder(this.root, []);
+  }
+
+  DFSPreorder() {
+    return transversePreOrder(this.root, []);
+  }
+  DFSPostorder() {
+    return transversePostOrder(this.root, []);
   }
 }
 
-//      9
-//   4       20
-// 1   6  15   70
+function transverseInOrder(node, list) {
+  if (node.left) {
+    transverseInOrder(node.left, list);
+  }
+  list.push(node.value);
+  if (node.right) {
+    transverseInOrder(node.right, list);
+  }
+
+  return list;
+}
+
+function transversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    transversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    transversePreOrder(node.right, list);
+  }
+
+  return list;
+}
+
+function transversePostOrder(node, list) {
+  if (node.left) {
+    transversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    transversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
+}
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -182,8 +227,13 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-console.log("BFS", tree.breathFirstSearch());
-console.log("BFS Recurssive", tree.breathFirstSearchR([tree.root], []));
+
+// console.log("BFS", tree.BreadthFirstSearch());
+// console.log("BFS", tree.BreadthFirstSearchR([tree.root], []));
+
+console.log(tree.DFSInorder());
+console.log(tree.DFSPreorder());
+console.log(tree.DFSPostorder());
 
 //     9
 //  4     20
