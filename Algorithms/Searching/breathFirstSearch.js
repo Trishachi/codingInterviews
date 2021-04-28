@@ -1,4 +1,13 @@
 //Using a queue algorith
+
+class Node {
+  constructor(value) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
+}
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -124,21 +133,40 @@ class BinarySearchTree {
   breathFirstSearch() {
     let currentNode = this.root;
     let list = [];
-    let queue = [];
+    let queue = []; //keeps track of the current level so we can access the children later
     queue.push(currentNode);
 
-    while (queue.lenght > 0) {
-      currentNode = queue.shift();
+    while (queue.length > 0) {
+      currentNode = queue.shift(); //takes the first item in the queue
       console.log(currentNode.value);
       list.push(currentNode.value);
       if (currentNode.left) {
+        //does the root node have a child on its left
         queue.push(currentNode.left);
       }
       if (currentNode.right) {
+        //does the root node have a child on its right
         queue.push(currentNode.right);
       }
     }
     return list;
+  }
+
+  breathFirstSearchR(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
+    let currentNode = queue.shift();
+    list.push(currentNode.value);
+    if (currentNode.left) {
+      //does the root node have a child on its left
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      //does the root node have a child on its right
+      queue.push(currentNode.right);
+    }
+    return this.breathFirstSearchR(queue, list);
   }
 }
 
@@ -154,8 +182,8 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-
-tree.breathFirstSearch();
+// tree.breathFirstSearch();
+tree.breathFirstSearchR([tree.root], []);
 
 //     9
 //  4     20
