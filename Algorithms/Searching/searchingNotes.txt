@@ -29,3 +29,9 @@ Which Tree traversal should be used
 //Determining whether a path exists between two nodes: DFS
 
 //Finding the shortest path: BFS
+
+Other Search types - Bellman-Ford and Dijkstra Algorithms == Help us to find the shortest path.
+
+Bellman-Ford Algorithm === Can accomodate negative weigth between nodes and can take a long time to run. Determines the sortest path. Not very efficient
+
+Dijkstra Algorithm === Runs faster than Bellman-Ford and is more efficient. Can accomodeate for negative weight between nodes. 
