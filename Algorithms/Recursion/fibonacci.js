@@ -5,6 +5,8 @@
 
 //For example: fibonacciRecursive(6) should return 8
 
+let calculations = 0;
+
 function fibonacciIterative(n) {
   let arr = [0, 1];
   for (let i = 2; i < n + 1; i++) {
@@ -12,13 +14,48 @@ function fibonacciIterative(n) {
   }
   return arr[n];
 }
-console.log(fibonacciIterative(8));
+// console.log(fibonacciIterative(8));
 
+//Using Recurssion with == 0(2^n)
 function fibonacciRecursive(n) {
+  // calculations++;
   if (n < 2) {
     return n;
   }
   return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 }
 
-// console.log(fibonacciRecursive(0));
+// console.log(fibonacciRecursive(30));
+
+//Using Dynamic Programming / Memoization(cacheing)
+//Dynamic programming can be viewed as combining "divide and conquer" with "memoization/cacheing"
+
+//When to use Dynamic Programming
+// - Problem can be divided into subproblems
+// - Recursive solution
+// - There are repetitive subproblems
+// - memoized subproblems
+// - Demand a raise from your boss :)
+
+function fibonacciMaster() {
+  let cache = {};
+  return function fib(n) {
+    calculations++;
+    if (n in cache) {
+      return cache[n];
+    } else {
+      if (n < 2) {
+        return n;
+      } else {
+        cache[n] = fib(n - 1) + fib(n - 2);
+        return cache[n];
+      }
+    }
+  };
+}
+
+const fasterFib = fibonacciMaster();
+
+console.log("Slow", fibonacciRecursive(10));
+console.log("DP", fasterFib(10));
+console.log("we did " + calculations + " calculations");
