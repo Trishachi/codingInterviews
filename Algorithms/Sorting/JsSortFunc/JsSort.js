@@ -55,6 +55,7 @@ points.sort(function (a, b) {
 console.log(points);
 
 /* Sorting Object Arrays
+Arrays of objects can be sorted by comparing the value of one of their properties.
 Even if objects have properties of different data types, the sort() method can be used to sort the array.
 The solution is to write a compare function to compare the property values:
 Sorting string properties is slightly more complex as seen below
