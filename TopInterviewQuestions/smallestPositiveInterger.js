@@ -1,8 +1,7 @@
 // Write a function:
 
-// function solution(A);
-
 // that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+//You must implement an algorithm that runs in O(n) time and uses constant extra space.
 
 // For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
 
@@ -20,29 +19,16 @@
 // console.log('this is a debug message');
 
 function solution(A) {
-  // write your code in JavaScript (Node.js 8.9.4)
-  // A.sort((a,b)=> a - b)
-  // return A;
-  let result = [];
-  for (let i = 0; i < A.length; i++) {
-    // if (0 <= A[i]) {
-    // result[A[i]] = true;
-    // }
-    console.log(A.length);
-    if (A[i] > 0) {
-      result[A[i]] = true;
-    }
-  }
-  console.log(result);
-  for (let i = 1; i <= result.length; i++) {
-    if (undefined === result[i]) {
-      return i;
-    }
-  }
-  return 1;
+  //if A is null or empty return 1
+  //find length of array
+  //Map through array and find valid elements = > 0 and < A.length+1
+  if (A === null || A.length == 0) return 1;
 }
 
-console.log(solution([1, 3, 6, 4, 1, 2])); // 5
-// console.log(solution([3,4,-1,1])); // 2
+// console.log(solution([1, 3, 6, 4, 1, 2])); // 5
+// console.log(solution([3, 4, -1, 1])); // 2
 // console.log(solution([1, 2, 3])); // 4
 // console.log(solution([-1, -3])); //1
+// console.log(solution([7,8,9,11,12])); //1
+// console.log(solution([1,2,0])); //3
+console.log(solution([])); //1

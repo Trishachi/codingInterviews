@@ -3,7 +3,7 @@
 var data;
 var request = new XMLHttpRequest();
 
-request.open("GET", "js/data.json"); //prepares the request
+request.open("GET", "./assets/data.json"); //prepares the request
 
 //for tracking the returned response
 request.onreadystatechange = function () {

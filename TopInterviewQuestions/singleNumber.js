@@ -27,7 +27,7 @@ const singleNumber = (nums) => {
     }
     object[item] += 1;
   });
-  //   console.log(object);
+  //
   for (const prop in object) {
     if (object[prop] < 2) {
       result.push(prop);
