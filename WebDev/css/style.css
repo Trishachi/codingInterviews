@@ -1,0 +1,13 @@
+.box {
+  display: black;
+  background: #ddd;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  float: left;
+  margin: 5px;
+}
+
+.boxes {
+  margin-top: 15px;
+}
