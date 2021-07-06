@@ -33,6 +33,7 @@ const singleNumber = (nums) => {
       result.push(prop);
     }
   }
+  console.log(object);
   return result[0];
 };
 
