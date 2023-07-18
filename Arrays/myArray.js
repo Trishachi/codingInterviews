@@ -8,7 +8,7 @@ class MyArray {
 
   //////////Array Methods ///////////////////////////
 
-  //Access Data
+  //Access Data from a specified index
   get(index) {
     return this.data[index];
   }
@@ -34,7 +34,9 @@ class MyArray {
     this.shiftItems(index);
   }
 
-  shiftItems(index) {
+  //Different method for shifting the indexes after a change -
+  //obeying "separation of concerns rule"
+    shiftItems(index) {
     for (let i = index; i < this.length - 1; i++) {
       this.data[i] = this.data[i + 1];
     }
@@ -50,5 +52,6 @@ newArray.push("!!");
 newArray.push("Howdy");
 newArray.push("Today");
 newArray.push("!!");
+newArray.pop();
 newArray.delete(2);
 console.log(newArray);
