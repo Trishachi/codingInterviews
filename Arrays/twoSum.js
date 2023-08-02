@@ -45,6 +45,9 @@ const twoSum = (nums, target) => {
     map[nums[num]] = num;
   }
 
+ //The JavaScript Object.prototype has the method hasOwnProperty() that returns true if a property //exists in an object:
+  //The in operator returns true if a property exists in an object. If a property does not exist in the //object, it returns false. ==> if(targetNum in map && map[targetNum] !== num)  
+
   //Loop through the harsh table to find target sum
   for (num in nums) {
     const targetNum = target - nums[num];
@@ -55,7 +58,10 @@ const twoSum = (nums, target) => {
   return "Target Not Found";
 };
 
-console.log(twoSum([2,7,11,15], 9)); 
+console.log(twoSum([2,7,11,15], 9)); //[0,1]
+// console.log(twoSum([2,2,11,15], 9)); //Target not found
 // console.log(twoSum([3,2,4], 6)); //[1,2]
 // console.log(twoSum([3,3], 6));  //[0,1]
-// console.log(twoSum([ ], 6));
+// console.log(twoSum([ ], 6));  //Target Not Found
+// console.log(twoSum([6], 6)); //Target Not Found
+// console.log(twoSum([0], 0)); //Target Not Found
