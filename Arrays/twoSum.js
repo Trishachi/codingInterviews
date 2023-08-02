@@ -29,8 +29,8 @@
 
 //Steps
   //Loop through the array and form a harsh table of item and index
-  //Loop through the harsh table to find target sum
-  //Return indexs of current item and target sum if found
+  //Loop through the hash table to find the target sum
+  //Return indexes of the current item and target sum if found
   //Return target not found if not found
 
 
@@ -40,10 +40,12 @@
 const twoSum = (nums, target) => {
   let map = {};
 
+  //Loop through the array and form a harsh table of item and index
   for (num in nums) {
     map[nums[num]] = num;
   }
 
+  //Loop through the harsh table to find target sum
   for (num in nums) {
     const targetNum = target - nums[num];
     if (map.hasOwnProperty(targetNum) && map[targetNum] !== num) {
@@ -53,4 +55,7 @@ const twoSum = (nums, target) => {
   return "Target Not Found";
 };
 
-console.log(twoSum([3, 3], 6)); //[1,2]
+console.log(twoSum([2,7,11,15], 9)); 
+// console.log(twoSum([3,2,4], 6)); //[1,2]
+// console.log(twoSum([3,3], 6));  //[0,1]
+// console.log(twoSum([ ], 6));
