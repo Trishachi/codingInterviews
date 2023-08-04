@@ -37,3 +37,5 @@ const isUniqueChars = (str) => {
  }
 
 console.log(isUniqueChars("Chisomili"));
+console.log(isUniqueChars(""));
+console.log(isUniqueChars("Chisocmbili"));
